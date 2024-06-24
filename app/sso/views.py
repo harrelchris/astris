@@ -2,7 +2,6 @@ import secrets
 import urllib.parse
 
 from django.conf import settings
-from django.contrib import messages
 from django.contrib.auth import get_user_model, login, logout
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -35,10 +34,6 @@ class CallbackView(RedirectView):
 
     def get(self, request, *args, **kwargs):
         if not services.validate_callback(request=request):
-            messages.error(
-                request=request,
-                message="Authorization failed. Please try again.",
-            )
             return redirect(reverse_lazy(settings.LOGIN_URL))
         oauth_token = services.request_oauth_token(request)
         token = Token(**oauth_token)
