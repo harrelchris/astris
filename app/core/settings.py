@@ -43,6 +43,7 @@ LOCAL_APPS = [
     "dashboard.apps.DashboardConfig",
     "esi.apps.EsiConfig",
     "public.apps.PublicConfig",
+    "sde.apps.SdeConfig",
     "sso.apps.SsoConfig",
     "users.apps.UsersConfig",
 ]
